@@ -8,7 +8,10 @@ public class ButtonManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
-
+    public void ReStartGame()
+    {
+        SceneManager.LoadScene("TitleScene");
+    }
     public void QuitGame()
     {
 #if UNITY_EDITOR

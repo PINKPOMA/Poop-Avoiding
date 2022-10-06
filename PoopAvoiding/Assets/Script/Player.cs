@@ -1,13 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField]private float moveSpeed;
     [SerializeField]private int hp;
+    [SerializeField]private TextMeshProUGUI hpText;
+
+    private void Start()
+    {
+        hpText.text = $"HP: {hp}";
+    }
+
     void Update()
     {
         Move();
@@ -34,6 +43,7 @@ public class Player : MonoBehaviour
         if (col.CompareTag("Poop"))
         {
             hp--;
+            hpText.text = $"HP: {hp}";
             if (hp < 1)
                 SceneManager.LoadScene("GameOverScene");
             Destroy(col.gameObject);
