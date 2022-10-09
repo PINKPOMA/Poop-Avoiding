@@ -790,8 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b8f11136cef6b49aa5ddd7cfbbf4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 0.25
-  currentTime: 0
+  maxTime: 0.15
   poopObject: {fileID: 1205213885550984646, guid: 7cef316f3f0836a4caea088f3fd2084b, type: 3}
 --- !u!4 &1925712962
 Transform:

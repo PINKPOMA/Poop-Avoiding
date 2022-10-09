@@ -8,17 +8,18 @@ using Random = UnityEngine.Random;
 public class Factory : MonoBehaviour
 {
    [SerializeField] private float maxTime;
-   [SerializeField] private float currentTime;
    [SerializeField] private GameObject poopObject;
 
 
-   private void Update()
+   private void Start()
    {
-      currentTime += Time.deltaTime;
-      if (currentTime >= maxTime)
-      {
-         Instantiate(poopObject, new Vector2(Random.Range(-8.55f, 8.55f), 5.7f), quaternion.identity);
-         currentTime = 0;
-      }
+      StartCoroutine(MakePoop());
+   }
+
+   public IEnumerator MakePoop()
+   {
+      Instantiate(poopObject, new Vector2(Random.Range(-8.55f, 8.55f), 5.7f), quaternion.identity);
+      yield return new WaitForSeconds(maxTime);
+      StartCoroutine(MakePoop());
    }
 }
